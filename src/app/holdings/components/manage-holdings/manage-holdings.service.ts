@@ -32,7 +32,7 @@ export class ManageHoldingsService {
   //   return this.http.put<SQLResponse>(`http://18.190.141.163/api/updateCoin`, {coin, amount})
   // }
   
-  addOrUpdateCoin(coin: string, amount: string): Observable<SQLResponse> {
-    return this.http.post<SQLResponse>(`http://18.190.141.163/api/addOrUpdateCoin`, {coin, amount});
+  addOrUpdateCoin(coin: string, amount: string): Observable<any> {
+    return this.http.post<any>(`http://18.190.141.163/api/addOrUpdateCoin`, {coin, amount});
   }
 }
