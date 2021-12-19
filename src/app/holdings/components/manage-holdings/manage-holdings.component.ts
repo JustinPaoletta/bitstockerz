@@ -15,10 +15,9 @@ export class ManageHoldingsComponent implements OnInit, OnDestroy {
   selected: string = '';
   supportedCoins: string[] = [];
   
-  addCoinSub$: Subscription = new Subscription;
+  addOrUpdateCoinSub$: Subscription = new Subscription;
   heldCoinsSub$: Subscription = new Subscription;
   supportedCoinsSub$: Subscription = new Subscription;
-  updateCoinSub$: Subscription = new Subscription;
   
 
   constructor(private manageHoldings: ManageHoldingsService) { }
@@ -33,18 +32,13 @@ export class ManageHoldingsComponent implements OnInit, OnDestroy {
   }
 
   addOrUpdateCoin(): void {
-    if (this.coinsHeld.includes(this.selected)) {
-      this.manageHoldings.updateCoin(this.selected, this.amountEntered).subscribe();
-    } else {
-      this.manageHoldings.addCoin(this.selected, this.amountEntered).subscribe();
-    }
+    this.addOrUpdateCoinSub$ = this.manageHoldings.addOrUpdateCoin(this.selected, this.amountEntered).subscribe();
   }
 
   ngOnDestroy(): void {
     this.heldCoinsSub$.unsubscribe();
     this.supportedCoinsSub$.unsubscribe();
-    this.updateCoinSub$.unsubscribe();
-    this.addCoinSub$.unsubscribe();
+    this.addOrUpdateCoinSub$.unsubscribe();
   }
 
 }

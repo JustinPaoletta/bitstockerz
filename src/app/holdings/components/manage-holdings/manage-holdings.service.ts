@@ -24,12 +24,15 @@ export class ManageHoldingsService {
     )
   }
 
-  addCoin(coin: string, amount: string): Observable<SQLResponse> {
-    return this.http.post<SQLResponse>(`http://18.190.141.163/api/addCoin`, {coin, amount});
-  }
+  // addCoin(coin: string, amount: string): Observable<SQLResponse> {
+  //   return this.http.post<SQLResponse>(`http://18.190.141.163/api/addCoin`, {coin, amount});
+  // }
 
-  updateCoin(coin: string, amount: string): Observable<SQLResponse> {
-    return this.http.put<SQLResponse>(`http://18.190.141.163/api/updateCoin`, {coin, amount})
-  }
+  // updateCoin(coin: string, amount: string): Observable<SQLResponse> {
+  //   return this.http.put<SQLResponse>(`http://18.190.141.163/api/updateCoin`, {coin, amount})
+  // }
   
+  addOrUpdateCoin(coin: string, amount: string): Observable<SQLResponse> {
+    return this.http.post<SQLResponse>(`http://18.190.141.163/api/addOrUpdateCoin`, {coin, amount});
+  }
 }
