@@ -6,13 +6,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Run `ng build` to build the project. The build artifacts will be stored in the `docs/` directory.
 
 ## Running unit tests
 
@@ -22,6 +18,14 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-## Further help
+## Project Structure 
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Build is located in the docs/ directory
+- app-server serves the index.html
+- news-server serves the crypto-news api
+- holdings-server serves the api for the amount of each coin owned
+- Servers are running in the background on the EC2 instance with PM2 (This means you can close the terminal instance and the processes will continue running)
+- nginx has multiple reverse proxies set up so that the port numbers can be removed from the url to the website and from the http requests to the api
+
+- Public IP of EC2 instance hosting app 18.190.141.163
+- The URL to access the hosted site is http://bitstockerz.com
