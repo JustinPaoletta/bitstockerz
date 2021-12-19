@@ -1,0 +1,21 @@
+<div id="manage-holdings">
+    <div>
+        <h1>Manage Holdings</h1>
+        <mat-form-field appearance="fill">
+            <mat-label>Choose a coin</mat-label>
+            <mat-select [(value)]="selected">
+                <mat-option *ngFor="let coin of supportedCoins" [value]="coin">
+                    {{ coin }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <div *ngIf="selected" id="updateAmount">
+            <p>Enter the amount of {{selected}} you own</p>
+            <mat-form-field>
+                <mat-label></mat-label>
+                <input matInput [(ngModel)]="amountEntered" />
+            </mat-form-field>
+            <button mat-raised-button type="submit" color="primary" (click)="addOrUpdateCoin()">SUBMIT</button>
+        </div>
+    </div>
+</div>

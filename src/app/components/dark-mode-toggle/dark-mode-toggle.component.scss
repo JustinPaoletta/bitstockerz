@@ -1,0 +1,19 @@
+#theme-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .extra-padding {
+        margin-left: 12px;
+        margin-right: 12px;
+    }
+
+    .less-margin {
+        margin-left: 0px;
+    }
+
+    .toggle {
+        padding-top: 6px;
+        align-items: center;
+    }
+}

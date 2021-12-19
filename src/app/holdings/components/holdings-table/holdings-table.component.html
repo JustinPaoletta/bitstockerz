@@ -1,0 +1,34 @@
+<div id="crypto-holdings">
+    <div>
+        <h1>Portfolio Total: {{ portfolioTotal | async | currency }}</h1>
+        <table mat-table matSort [dataSource]="dataSource" class="mat-elevation-z0 crypto-table">
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>COIN</th>
+                <td mat-cell *matCellDef="let coin"> {{ coin.name }}</td>
+            </ng-container>
+    
+            <ng-container matColumnDef="price" class="price">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>MARKET PRICE</th>
+            <td mat-cell *matCellDef="let coin"> {{ coin.price | currency }} </td>
+            </ng-container>
+    
+            <ng-container matColumnDef="amount_owned">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>AMOUNT OWNED</th>
+            <td mat-cell *matCellDef="let coin"> {{ coin.amount_owned }} </td>
+            </ng-container>
+    
+            <ng-container matColumnDef="total_value">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>TOTAL VALUE</th>
+            <td mat-cell *matCellDef="let coin"> 
+                <div class="last-cell">
+                    <div>{{ coin.market_data.current_price.usd * coin.amount_owned | currency }}</div>
+                    <mat-icon (click)="deleteCoin(coin.id)">delete</mat-icon>
+                </div>
+            </td>
+            </ng-container>
+    
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>
+</div>

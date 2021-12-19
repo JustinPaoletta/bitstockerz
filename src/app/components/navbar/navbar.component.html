@@ -1,0 +1,13 @@
+<mat-toolbar fxLayout="row" id="navbar">
+    <div fxLayout="row" fxFlex="50" class="brand">
+        <a routerLink="/"><h1>BITSTOCKERZ</h1></a>
+        <img src="./assets/BITCOIN.gif" />
+    </div>
+    <div fxLayout="row" fxHide.lt-sm="true" fxFlex="25" class="links">
+        <a routerLink="/holdings">Holdings</a>
+        <a routerLink="/trading-playground">Trading Playground</a>
+    </div>
+    <div fxFlex fxLayout="row-reverse">
+        <app-navmenu></app-navmenu>
+    </div>
+</mat-toolbar>

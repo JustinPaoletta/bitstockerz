@@ -1,0 +1,8 @@
+import { MarketCap100 } from './../../types/types';
+import { createAction, props } from '@ngrx/store';
+
+
+export const updateTradeData = createAction(
+  '[Trading Playground] Update Trade Data',
+  props<{ coinData: Array<MarketCap100> }>()
+);

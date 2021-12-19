@@ -1,0 +1,29 @@
+#navbar { 
+    .brand {
+        align-items: center;
+        
+        a {
+            h1 {
+                padding-left: 1rem;
+                font-family: 'ZCOOL KuaiLe', cursive;
+            }
+        }
+        
+        img {
+            height: 40px;
+            margin-left: 14px;
+        }
+    }
+
+    .links {
+        a {
+            padding-left: 1rem;
+            font-family: 'Saira', sans-serif;
+            font-size: 14px;
+        }
+    }
+    
+    mat-icon {
+        cursor: pointer;
+    }
+}

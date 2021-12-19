@@ -1,0 +1,60 @@
+.container {
+    height:100%;
+    width:100%;
+    padding-top: 36px;
+}
+
+#market-overview {
+    height: 100%;
+    width: 100%;
+
+    mat-form-field {
+        margin-left: 2%;
+    }
+
+    mat-row {
+        min-height: 36px !important;
+    }
+
+    h1 {
+        text-align: center;
+        margin-top: 12px;
+        font-family: 'Saira', sans-serif;
+        font-weight: bolder;
+    }
+
+    .market-table {
+        width: 96%;
+        margin-left: 2%;
+    }
+
+    tr.mat-row {
+        height: 30px;
+    }
+
+    .mat-cell {
+        font-size: 8px;
+    }
+
+    mat-paginator {
+        width: 96%;
+        margin-left: 2%;
+        font-size: 8px;
+    }
+
+    img { 
+        width: 24px; 
+        height: 24px; 
+    }
+
+    .logo {
+        display: flex;
+        height: 30px;
+        justify-content: right;
+        align-items: center;
+        width: 50px;
+        .number {
+            padding-right: 12px;
+        }
+    }
+}
