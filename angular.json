@@ -6,7 +6,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "bitstocker": {
+    "bitstockerz": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -75,10 +75,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "bitstocker:build:production"
+              "browserTarget": "bitstockerz:build:production"
             },
             "development": {
-              "browserTarget": "bitstocker:build:development"
+              "browserTarget": "bitstockerz:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -86,7 +86,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "bitstocker:build"
+            "browserTarget": "bitstockerz:build"
           }
         },
         "test": {
@@ -110,5 +110,5 @@
       }
     }
   },
-  "defaultProject": "bitstocker"
+  "defaultProject": "bitstockerz"
 }
