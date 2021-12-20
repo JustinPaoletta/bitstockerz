@@ -49,21 +49,6 @@ server.delete('/api/deleteCoin', function (req, res) {
     })
 });
 
-// server.post('/api/addCoin', function (req, res) {
-//     connection.query(`INSERT INTO cryptoholdings (coin, amount)
-//     VALUES ('${req.body.coin}', '${req.body.amount}');`, (error, data) => {
-//         if (error) {
-//             console.error();
-//         } else {
-//             res.send(data);
-//         }
-//     })
-// });
-
-// server.put('/api/updateCoin', function (req, res) {
-//     connection.query(`UPDATE cryptoholdings SET amount = '${req.body.amount}' WHERE coin = '${req.body.coin}';`)
-// });
-
 server.post('/api/addOrUpdateCoin', function (req, res) {
     connection.query(`INSERT INTO cryptoholdings (coin, amount) VALUES ('${req.body.coin}', '${req.body.amount}') ON DUPLICATE KEY UPDATE amount = '${req.body.amount}'`, (error, data) => {
         if (error) {
