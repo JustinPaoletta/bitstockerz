@@ -65,7 +65,7 @@ server.delete('/api/deleteCoin', function (req, res) {
 // });
 
 server.post('/api/addOrUpdateCoin', function (req, res) {
-    connection.query(`INSERT INTO cryptoholdings (coin, amount) VALUES ('${req.body.coin}', '${req.body.amount}') ON DUPLICATE KEY UPDATE amount = ${req.body.amount}`, (error, data) => {
+    connection.query(`INSERT INTO cryptoholdings (coin, amount) VALUES ('${req.body.coin}', '${req.body.amount}') ON DUPLICATE KEY UPDATE amount = '${req.body.amount}'`, (error, data) => {
         if (error) {
             console.error();
         } else {
