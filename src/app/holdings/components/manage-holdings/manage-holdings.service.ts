@@ -24,7 +24,7 @@ export class ManageHoldingsService {
     )
   }
   
-  addOrUpdateCoin(coin: string, amount: string): Observable<SQLResponse> {
+  addOrUpdateCoin(coin: string, amount: string | undefined): Observable<SQLResponse> {
     return this.http.post<SQLResponse>(`http://18.190.141.163/api/addOrUpdateCoin`, {coin, amount});
   }
 }

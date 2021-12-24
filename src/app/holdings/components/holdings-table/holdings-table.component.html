@@ -1,6 +1,6 @@
 <div id="crypto-holdings">
     <div>
-        <h1>Portfolio Total: {{ portfolioTotal | async | currency }}</h1>
+        <h1>PORTFOLIO TOTAL : {{ portfolioTotal | async | currency }}</h1>
         <table mat-table matSort [dataSource]="dataSource" class="mat-elevation-z0 crypto-table">
             <ng-container matColumnDef="name">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>COIN</th>

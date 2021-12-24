@@ -1,9 +1,13 @@
 <div id="manage-holdings">
     <div>
-        <h1>Manage Holdings</h1>
+        <h1>ADD MORE COINS</h1>
         <mat-form-field appearance="fill">
             <mat-label>Choose a coin</mat-label>
-            <mat-select [(value)]="selected">
+            <mat-select (selectionChange)="clearInputField()" [(value)]="selected">
+                <mat-form-field style="margin-top: 8px;">
+                    <input matInput type="text" [(ngModel)]="inputValue" (keyup)="filterSupportedCoins(inputValue)" />
+                    <mat-placeholder style="padding-left: 12px;">Filter Coins</mat-placeholder>
+                </mat-form-field>
                 <mat-option *ngFor="let coin of supportedCoins" [value]="coin">
                     {{ coin }}
                 </mat-option>
@@ -13,7 +17,7 @@
             <p>Enter the amount of {{selected}} you own</p>
             <mat-form-field>
                 <mat-label></mat-label>
-                <input matInput [(ngModel)]="amountEntered" />
+                <input matInput [(ngModel)]="amountEntered" required/>
             </mat-form-field>
             <button mat-raised-button type="submit" color="primary" (click)="addOrUpdateCoin()">SUBMIT</button>
         </div>

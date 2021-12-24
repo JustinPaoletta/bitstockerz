@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { forkJoin, Observable, of } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { forkJoin, Observable, of, Subject, timer } from 'rxjs';
+import { map, switchMap } from 'rxjs/operators';
 import { Coin, CoinData, SQLResponse } from 'src/app/types/types';
 
 
@@ -10,7 +10,20 @@ import { Coin, CoinData, SQLResponse } from 'src/app/types/types';
 })
 export class HoldingsTableService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
+
+  holdings: Subject<CoinData[]> = new Subject<CoinData[]>();
+
+  myHoldings60(): Observable<CoinData[]> {
+    return timer(0, 60000).pipe(
+      switchMap(() => {
+        return this.getStash().pipe(
+          switchMap((stash: Coin[]) => {
+            return this.getPricingInfo(stash);
+          })
+        );
+      })
+  )}
 
   getPricingInfo(stash: Coin[]): Observable<CoinData[]> {
     return forkJoin(
