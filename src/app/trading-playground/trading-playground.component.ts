@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { CoinData, MarketCap100 } from 'src/app/types/types';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { TradingPlaygroundService } from './trading-playground.service';
@@ -6,6 +7,8 @@ import { take } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 import { updateTradeData } from './redux/actions';
 import { selectCoinData } from './redux/selectors';
+import Chart from 'chart.js/auto';
+
 
 @Component({
   selector: 'app-trading-playground',
@@ -21,9 +24,12 @@ export class TradingPlaygroundComponent implements OnInit, OnDestroy {
   selectedCoinData: Subject<CoinData> = new Subject<CoinData>();
   supportedCoins: Observable<MarketCap100[]> = this.store$.select(selectCoinData);
 
+  myChart!: Chart;
+
   constructor(
     private tradingsService: TradingPlaygroundService,
-    private store$: Store
+    private store$: Store,
+    private http: HttpClient
   ) { }
 
   ngOnInit(): void {
@@ -41,9 +47,47 @@ export class TradingPlaygroundComponent implements OnInit, OnDestroy {
   }
 
   getSingleCoinInfo(): void {
+    if (this.myChart) {
+      this.myChart.destroy();
+    }
+    const dates: Set<string> = new Set();
+    const prices: Set<number> = new Set();
+    this.http.get(`https://api.coingecko.com/api/v3/coins/${this.selected}/market_chart/range?vs_currency=usd&from=1637815075&to=1640407081`).subscribe((data: any) => {
+      console.log(data)
+      data.prices.map((price: any) => {
+        if (!dates.has(new Date(price[0]).toLocaleDateString("en-US"))) {
+          prices.add(price[1])
+        }
+        dates.add(new Date(price[0]).toLocaleDateString("en-US"))   
+      });
+
+      const ctx: any = document.getElementById('myChart');
+      this.myChart = new Chart(ctx, {
+          type: 'line',
+          data: {
+              labels: Array.from(dates),
+              datasets: [{
+                  label: 'Market Price Past 30 Days',
+                  data: Array.from(prices),
+                  borderColor: 'green',
+                  borderWidth: 1
+              }]
+          },
+          options: {
+              scales: {
+                  y: {
+                      beginAtZero: true
+                  }
+              }
+          }
+      });
+
+      console.log(dates)
+      console.log(prices)
+    })  
     this.coinByIdSub$ = this.tradingsService.getCoinById(this.selected)
       .subscribe((coinInfo: CoinData) => {
-        this.selectedCoinData.next(coinInfo);
+        this.selectedCoinData.next(coinInfo); 
       });
   }
 

@@ -1,3 +1,4 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CryptoNewsComponent } from './crypto-news.component';
@@ -8,7 +9,8 @@ describe('CryptoNewsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CryptoNewsComponent ]
+      declarations: [ CryptoNewsComponent ],
+      imports: [ HttpClientTestingModule ]
     })
     .compileComponents();
   });

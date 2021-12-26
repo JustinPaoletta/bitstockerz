@@ -1,12 +1,24 @@
 #manage-holdings {
     display: flex;
     justify-content: center;
-    align-items: center;
     width: 90vw;
     margin-left: 5vw;
+    min-height: 50vh;
 
     h1 {
         margin-top: 24px;
         margin-bottom: 24px;
+    }
+
+    .mat-form-field-wrapper {
+        margin-left: 5vw;
+    }
+
+    .mat-form-field-infix {
+        margin-left: 5vw;
+    }
+
+    .valid-input-message {
+        color: red;
     }
 }

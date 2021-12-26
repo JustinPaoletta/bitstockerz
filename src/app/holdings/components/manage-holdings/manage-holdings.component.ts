@@ -18,6 +18,8 @@ export class ManageHoldingsComponent implements OnInit, OnDestroy {
   supportedCoins: string[] = [];
   supportedCoinsCopy: string[] = [];
 
+  validInputMessage: string = '';
+
   inputValue: string = '';
   
   addOrUpdateCoinSub$: Subscription = new Subscription;
@@ -39,15 +41,18 @@ export class ManageHoldingsComponent implements OnInit, OnDestroy {
   }
 
   addOrUpdateCoin(): void {
-    if (this.amountEntered) {
+    if (Number(this.amountEntered)) {
       this.addOrUpdateCoinSub$ = this.manageHoldingsService.addOrUpdateCoin(this.selected, this.amountEntered)
       .pipe(
-        switchMap(() => { return this.holdingsTableService.myHoldings60()})
+        switchMap((data) => { console.log(data); return this.holdingsTableService.myHoldings60()})
       ).subscribe((coinData: CoinData[]) => {
         // update tableData 
         this.holdingsTableService.holdings.next(coinData);
         this.clearInputField();
+        this.validInputMessage = ''
       });
+    } else {
+      this.validInputMessage = 'The value entered must be a Number'
     }
   }
 

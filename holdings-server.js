@@ -1,4 +1,5 @@
 const cors = require('cors');
+require('dotenv').config();
 const express = require('express');
 let server = express();
 
@@ -12,11 +13,11 @@ server.use(express.json());
 const sql = require('mysql');
 
 const connection = sql.createConnection({
-    host     : 'myholdings.ce32gg8cgwze.us-east-2.rds.amazonaws.com',
-    user     : 'admin',
-    password : 'bf4oVKcALvALJeQc8m2z',
+    host     : process.env.HOLDINGS_HOST,
+    user     : process.env.HOLDINGS_USER,
+    password : process.env.HOLDINGS_PASSWORD,
     port     : '3306',
-    database : 'myholdings'
+    database : process.env.HOLDINGS_DATABASE
 });
 
 connection.connect(function(err) {

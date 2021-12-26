@@ -4,7 +4,7 @@
         <mat-form-field appearance="fill">
             <mat-label>Choose a coin</mat-label>
             <mat-select (selectionChange)="clearInputField()" [(value)]="selected">
-                <mat-form-field style="margin-top: 8px;">
+                <mat-form-field style="margin-top: 16px; margin-left: 8px;">
                     <input matInput type="text" [(ngModel)]="inputValue" (keyup)="filterSupportedCoins(inputValue)" />
                     <mat-placeholder style="padding-left: 12px;">Filter Coins</mat-placeholder>
                 </mat-form-field>
@@ -14,11 +14,13 @@
             </mat-select>
         </mat-form-field>
         <div *ngIf="selected" id="updateAmount">
-            <p>Enter the amount of {{selected}} you own</p>
+            <p>Enter the amount of {{selected | uppercase}} you own</p>
+            <p *ngIf="validInputMessage" class="valid-input-message">{{validInputMessage}}</p>
             <mat-form-field>
                 <mat-label></mat-label>
                 <input matInput [(ngModel)]="amountEntered" required/>
             </mat-form-field>
+            <br/>
             <button mat-raised-button type="submit" color="primary" (click)="addOrUpdateCoin()">SUBMIT</button>
         </div>
     </div>
