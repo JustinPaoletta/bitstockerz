@@ -13,11 +13,11 @@ server.use(express.json());
 const sql = require('mysql');
 
 const connection = sql.createConnection({
-    host     : `${process.env.HOLDINGS_HOST}`,
-    user     : `${process.env.HOLDINGS_USER}`,
-    password : `${process.env.HOLDINGS_PASSWORD}`,
+    host     : process.env.HOLDINGS_HOST,
+    user     : process.env.HOLDINGS_USER,
+    password : process.env.HOLDINGS_PASSWORD,
     port     : '3306',
-    database : `${process.env.HOLDINGS_DATABASE}`
+    database : process.env.HOLDINGS_DATABASE
 });
 
 connection.connect(function(err) {
