@@ -14,7 +14,7 @@ const sql = require('mysql');
 
 const connection = sql.createConnection({
     host     : 'myholdings.ce32gg8cgwze.us-east-2.rds.amazonaws.com',
-    user     : 'admin',
+    user     : process.env.HOLDINGS_USER,
     password : 'bf4oVKcALvALJeQc8m2z',
     port     : '3306',
     database : 'myholdings'
