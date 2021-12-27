@@ -12,12 +12,17 @@ server.use(express.json());
 
 const sql = require('mysql');
 
+const host = process.env.HOLDINGS_HOST;
+const user = process.env.HOLDINGS_USER;
+const password = process.env.HOLDINGS_PASSWORD;
+const database = process.env.HOLDINGS_DATABASE;
+
 const connection = sql.createConnection({
-    host     : process.env.HOLDINGS_HOST,
-    user     : process.env.HOLDINGS_USER,
-    password : process.env.HOLDINGS_PASSWORD,
+    host,
+    user,
+    password,
     port     : '3306',
-    database : process.env.HOLDINGS_DATABASE
+    database
 });
 
 connection.connect(function(err) {
