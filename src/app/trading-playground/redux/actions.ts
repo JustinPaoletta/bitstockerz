@@ -6,3 +6,7 @@ export const updateTradeData = createAction(
   '[Trading Playground] Update Trade Data',
   props<{ coinData: Array<MarketCap100> }>()
 );
+
+export const clearState = createAction(
+  '[Trading Playground] Clear State'
+);
