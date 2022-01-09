@@ -8,17 +8,17 @@
             </ng-container>
     
             <ng-container matColumnDef="price" class="price">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>MARKET PRICE</th>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>PRICE</th>
             <td mat-cell *matCellDef="let coin"> {{ coin.price | currency }} </td>
             </ng-container>
     
             <ng-container matColumnDef="amount_owned">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>AMOUNT OWNED</th>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>OWNED</th>
             <td mat-cell *matCellDef="let coin"> {{ coin.amount_owned }} </td>
             </ng-container>
     
             <ng-container matColumnDef="total_value">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>TOTAL VALUE</th>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>VALUE</th>
             <td mat-cell *matCellDef="let coin"> 
                 <div class="last-cell">
                     <div>{{ coin.market_data.current_price.usd * coin.amount_owned | currency }}</div>

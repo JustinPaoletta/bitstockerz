@@ -1,11 +1,10 @@
 .container {
     height:100%;
     width:100%;
-    padding-top: 36px;
 }
 
 #market-overview {
-    height: 100vh;
+    height: 90vh;
     width: 100%;
 
     mat-form-field {
@@ -14,6 +13,10 @@
 
     mat-row {
         min-height: 36px !important;
+    }
+
+    .mat-input-element {
+        margin-left: 12px;
     }
 
     h1 {
@@ -50,11 +53,10 @@
     .logo {
         display: flex;
         height: 30px;
-        justify-content: right;
         align-items: center;
         width: 50px;
         .number {
-            padding-right: 12px;
+            width: 2rem;
         }
     }
 }
