@@ -1,3 +1,4 @@
+import { MarketMoversComponent } from './components/market-movers/market-movers.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -12,15 +13,18 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { MatInputModule } from '@angular/material/input';
 import { MatSortModule } from '@angular/material/sort';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
   declarations: [
     LandingPageComponent,
     CryptoNewsComponent,
-    MarketOverviewComponent
+    MarketOverviewComponent,
+    MarketMoversComponent
   ],
   imports: [
+    MatIconModule,
     MatFormFieldModule,
     MatInputModule,
     MatPaginatorModule,

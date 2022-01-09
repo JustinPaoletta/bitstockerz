@@ -1,0 +1,52 @@
+.container {
+    height: 100%;
+    width: 100%;
+    padding-top: 36px;
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Saira', sans-serif;
+    font-weight: bolder;
+    margin-bottom: 48px;
+}
+
+.slider {
+    overflow-x: scroll;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.slider::-webkit-scrollbar {
+    display: none;
+}
+
+#market-movers {
+    height: 40vh;
+    width: 90%;
+
+    .card {
+        height: 180px;
+        width: 180px;
+        line-height:4em;
+        text-align:center;
+        margin:2em;
+        border-radius: 10px;
+        box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
+        -webkit-box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
+        -moz-box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
+    }
+
+    mat-icon {
+        margin-left: -12px;
+        padding-right: 12px;
+    }
+
+    .percentage-up {
+        color: rgb(41, 126, 41);
+    }
+
+    .percentage-down {
+        color: rgb(161, 29, 29);
+    }
+}

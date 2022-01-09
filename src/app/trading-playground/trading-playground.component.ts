@@ -50,9 +50,17 @@ export class TradingPlaygroundComponent implements OnInit, OnDestroy {
     if (this.myChart) {
       this.myChart.destroy();
     }
+
+    const currentTime = new Date().getTime();
+    const offset = (24*60*60*1000) * 30;
+    const oneMonthAgo = currentTime - offset;
+
+    const now =  currentTime.toString().slice(0,10);
+    const past = oneMonthAgo.toString().slice(0,10);
+
     const dates: Set<string> = new Set();
     const prices: Set<number> = new Set();
-    this.http.get(`https://api.coingecko.com/api/v3/coins/${this.selected}/market_chart/range?vs_currency=usd&from=1637815075&to=1640407081`).subscribe((data: any) => {
+    this.http.get(`https://api.coingecko.com/api/v3/coins/${this.selected}/market_chart/range?vs_currency=usd&from=${past}&to=${now}`).subscribe((data: any) => {
       data.prices.map((price: any) => {
         if (!dates.has(new Date(price[0]).toLocaleDateString("en-US"))) {
           prices.add(price[1])

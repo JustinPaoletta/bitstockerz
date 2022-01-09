@@ -39,6 +39,20 @@ server.get('/api/trade', (req, res) => {
 
 });
 
+server.get('/api/market-movers', (req, res) => {
+    console.log(req.query.date)
+
+    axios.get(`https://api.coingecko.com/api/v3/coins/${req.query.coin}/history?date=${req.query.date}`)
+    .then((responseObject) => {
+        res.status(200).send(responseObject.data);
+    })
+    .catch((error) => {
+        console.log(error)
+    })
+
+});
+
+
 server.listen(PORT, (err) => {
     if (err) {
         console.log('There was a problem with the server: ', err);

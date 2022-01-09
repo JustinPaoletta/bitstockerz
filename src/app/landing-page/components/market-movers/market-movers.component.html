@@ -1,0 +1,23 @@
+<div fxLayout="column" fxLayoutAlign=" center" class="container">
+    <h1>Market Movers</h1>
+    <div id="market-movers" fxLayout="row" class="slider">
+        <div *ngFor="let coin of top10CoinsMovement">
+            <mat-card *ngIf="coin.decrease" class="card">
+                <h3>{{coin.id | uppercase}}</h3>
+                <img src={{coin.image.small}} />
+                <div fxLayout="row" fxLayoutAlign="center">
+                    <mat-icon class="percentage-down">trending_down</mat-icon>
+                    <h1 class="percentage-down">{{coin.decrease}} %</h1>
+                </div>
+            </mat-card>
+            <mat-card *ngIf="coin.increase" class="card">
+                <h3>{{coin.id | uppercase}}</h3>
+                <img src={{coin.image.small}} />
+                <div fxLayout="row" fxLayoutAlign="center">
+                    <mat-icon class="percentage-up">trending_up</mat-icon>
+                    <h1 class="percentage-up">{{coin.increase}} %</h1>
+                </div>
+            </mat-card>
+        </div>
+    </div>
+</div>
