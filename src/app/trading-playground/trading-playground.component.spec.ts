@@ -8,17 +8,14 @@ describe('TradingPlaygroundComponent', () => {
   let component: TradingPlaygroundComponent;
   let fixture: ComponentFixture<TradingPlaygroundComponent>;
   let store: MockStore;
-  const initialState = { };
+  const initialState = {};
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TradingPlaygroundComponent ],
-      imports: [ HttpClientTestingModule ],
-      providers: [
-        provideMockStore({ initialState }),
-      ],
-    })
-    .compileComponents();
+      declarations: [TradingPlaygroundComponent],
+      imports: [HttpClientTestingModule],
+      providers: [provideMockStore({ initialState })],
+    }).compileComponents();
 
     store = TestBed.inject(MockStore);
   });

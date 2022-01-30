@@ -1,38 +1,37 @@
 .container {
-    height: 100%;
-    width: 100%;
+  height: 100%;
+  width: 100%;
 }
 
 h1 {
-    text-align: center;
-    font-family: 'Saira', sans-serif;
-    font-weight: bolder;
-    margin-bottom: 48px;
-    margin-top: 24px;
+  text-align: center;
+  font-family: "Saira", sans-serif;
+  font-weight: bolder;
+  margin-bottom: 48px;
+  margin-top: 24px;
 }
 
 #crypto-news {
-    max-height: 80vh;
-    width: 90%;
+  max-height: 80vh;
+  width: 90%;
 
-    mat-card {
-        margin-top: 4px;
-        margin-bottom: 4px;
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr 1fr;
-        .info {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-        }
+  mat-card {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    .info {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
     }
+  }
 
-    overflow-y: scroll !important;
+  overflow-y: scroll !important;
 
-    ::-webkit-scrollbar {
-        width: 0px;
-        background: transparent;
-    }
-
+  ::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+  }
 }

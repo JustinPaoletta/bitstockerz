@@ -10,18 +10,17 @@ import { LandingPageComponent } from './landing-page.component';
 import { CryptoNewsComponent } from './components/crypto-news/crypto-news.component';
 import { MarketOverviewComponent } from './components/market-overview/market-overview.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { FlexLayoutModule } from "@angular/flex-layout";
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatInputModule } from '@angular/material/input';
 import { MatSortModule } from '@angular/material/sort';
 import { MatIconModule } from '@angular/material/icon';
-
 
 @NgModule({
   declarations: [
     LandingPageComponent,
     CryptoNewsComponent,
     MarketOverviewComponent,
-    MarketMoversComponent
+    MarketMoversComponent,
   ],
   imports: [
     MatIconModule,
@@ -33,7 +32,7 @@ import { MatIconModule } from '@angular/material/icon';
     LandingPageRoutingModule,
     MatTableModule,
     FlexLayoutModule,
-    MatSortModule
-  ]
+    MatSortModule,
+  ],
 })
-export class LandingPageModule { }
+export class LandingPageModule {}

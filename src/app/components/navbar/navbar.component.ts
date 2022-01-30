@@ -11,14 +11,18 @@ import { CoinData } from 'src/app/types/types';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss']
+  styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
-
   portfolioTotal: Observable<string> = this.store$.select(selectBalance);
-  isHoldingsView: Boolean | undefined
+  isHoldingsView: Boolean | undefined;
 
-  constructor(private holdingsTableService: HoldingsTableService, private store$: Store, private location: Location, private router: Router) { }
+  constructor(
+    private holdingsTableService: HoldingsTableService,
+    private store$: Store,
+    private location: Location,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.router.events.subscribe(() => {
@@ -29,25 +33,29 @@ export class NavbarComponent implements OnInit {
       }
     });
 
-    this.holdingsTableService.myHoldings60().pipe(
-      map((coinData: CoinData[]) => {
-        this.holdingsTableService.holdings.next(coinData);
-      })
-    ).subscribe();
+    this.holdingsTableService
+      .myHoldings60()
+      .pipe(
+        map((coinData: CoinData[]) => {
+          this.holdingsTableService.holdings.next(coinData);
+        })
+      )
+      .subscribe();
 
-    this.holdingsTableService.holdings.pipe(
-      switchMap((coinData: CoinData[]) => {
-        return this.holdingsTableService.calculateTotalCrypto(coinData);
-      }),
-      map((totalHoldings: number) => {
-        this.store$.dispatch(
-          updateHoldings({ balance: String(totalHoldings) })
-        );
-      }),
-      switchMap(() => {
-        return this.portfolioTotal;
-      })
-    ).subscribe();
+    this.holdingsTableService.holdings
+      .pipe(
+        switchMap((coinData: CoinData[]) => {
+          return this.holdingsTableService.calculateTotalCrypto(coinData);
+        }),
+        map((totalHoldings: number) => {
+          this.store$.dispatch(
+            updateHoldings({ balance: String(totalHoldings) })
+          );
+        }),
+        switchMap(() => {
+          return this.portfolioTotal;
+        })
+      )
+      .subscribe();
   }
-
 }

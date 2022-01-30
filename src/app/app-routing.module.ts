@@ -5,25 +5,29 @@ import { NgModule } from '@angular/core';
 import { Route, RouterModule, Routes } from '@angular/router';
 
 const indexRoute: Route = {
-  path: "",
-  component: LandingPageComponent
-}
+  path: '',
+  component: LandingPageComponent,
+};
 
 const fallbackRoute: Route = {
   path: '**',
-  component: LandingPageComponent
-}
+  component: LandingPageComponent,
+};
 
 const routes: Routes = [
   { path: 'trading-playground', component: TradingPlaygroundComponent },
   { path: 'holdings', component: HoldingsComponent },
-  { path: 'account', loadChildren: () => import('./account/account.module').then(m => m.AccountModule)},
+  {
+    path: 'account',
+    loadChildren: () =>
+      import('./account/account.module').then((m) => m.AccountModule),
+  },
   indexRoute,
-  fallbackRoute
+  fallbackRoute,
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

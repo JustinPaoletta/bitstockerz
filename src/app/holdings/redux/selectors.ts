@@ -1,8 +1,7 @@
 import { HoldingsState } from './reducers';
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 
-export const selectHoldings =
-  createFeatureSelector<HoldingsState>('holdings');
+export const selectHoldings = createFeatureSelector<HoldingsState>('holdings');
 
 export const selectBalance = createSelector(
   selectHoldings,

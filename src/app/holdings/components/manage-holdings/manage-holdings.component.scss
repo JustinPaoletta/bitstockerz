@@ -1,24 +1,17 @@
 #manage-holdings {
-    display: flex;
-    justify-content: center;
-    width: 90vw;
-    margin-left: 5vw;
-    min-height: 50vh;
+  min-height: 50vh;
+  min-width: 50vw;
+  margin: 2rem;
 
-    h1 {
-        margin-top: 24px;
-        margin-bottom: 24px;
-    }
+  .valid-input-message {
+    color: red;
+  }
 
-    .mat-form-field-wrapper {
-        margin-left: 5vw;
-    }
+  mat-select {
+    text-align: left;
+  }
 
-    .mat-form-field-infix {
-        margin-left: 5vw;
-    }
-
-    .valid-input-message {
-        color: red;
-    }
+  input {
+    text-indent: 10px;
+  }
 }

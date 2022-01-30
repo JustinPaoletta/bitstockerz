@@ -7,17 +7,13 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { CoinSpinnerComponent } from './components/coin-spinner/coin-spinner.component';
 
-
 @NgModule({
-  declarations: [
-    CoinSpinnerComponent,
-    TradingPlaygroundComponent
-  ],
+  declarations: [CoinSpinnerComponent, TradingPlaygroundComponent],
   imports: [
     MatSelectModule,
     MatFormFieldModule,
     CommonModule,
-    TradingPlaygroundRoutingModule
-  ]
+    TradingPlaygroundRoutingModule,
+  ],
 })
-export class TradingPlaygroundModule { }
+export class TradingPlaygroundModule {}

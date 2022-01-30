@@ -13,15 +13,18 @@ import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { MatSortModule } from '@angular/material/sort';
 import { MatIconModule } from '@angular/material/icon';
-
+import { MatDialogModule } from '@angular/material/dialog';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
     HoldingsComponent,
     HoldingsTableComponent,
-    ManageHoldingsComponent
+    ManageHoldingsComponent,
   ],
   imports: [
+    FlexLayoutModule,
+    MatDialogModule,
     MatIconModule,
     MatSortModule,
     MatButtonModule,
@@ -31,7 +34,7 @@ import { MatIconModule } from '@angular/material/icon';
     MatFormFieldModule,
     MatTableModule,
     CommonModule,
-    HoldingsRoutingModule
-  ]
+    HoldingsRoutingModule,
+  ],
 })
-export class HoldingsModule { }
+export class HoldingsModule {}

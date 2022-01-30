@@ -1,22 +1,22 @@
 <div id="navmenu">
-    <button mat-button color="primary" [matMenuTriggerFor]="menu">
-        <mat-icon>menu</mat-icon>
+  <button mat-button color="primary" [matMenuTriggerFor]="menu">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="loadAccountSettings()">
+      <mat-icon>person</mat-icon>
+      Account
     </button>
-    <mat-menu #menu="matMenu">
-        <button mat-menu-item (click)="loadAccountSettings()">
-            <mat-icon>person</mat-icon>
-            Account
-        </button>
-        <button fxHide.gt-sm="true" mat-menu-item (click)="loadHoldings()">
-            <mat-icon>account_balance</mat-icon>
-            Holdings
-        </button>
-        <button fxHide.gt-sm="true" mat-menu-item (click)="loadTradingPlayground()">
-            <mat-icon>trending_up</mat-icon>
-            Trading Playground
-        </button>
-        <button id="toggle" mat-menu-item>
-            <app-dark-mode-toggle></app-dark-mode-toggle>
-        </button>
-    </mat-menu>
+    <button fxHide.gt-sm="true" mat-menu-item (click)="loadHoldings()">
+      <mat-icon>account_balance</mat-icon>
+      Holdings
+    </button>
+    <button fxHide.gt-sm="true" mat-menu-item (click)="loadTradingPlayground()">
+      <mat-icon>trending_up</mat-icon>
+      Trading Playground
+    </button>
+    <button id="toggle" mat-menu-item>
+      <app-dark-mode-toggle></app-dark-mode-toggle>
+    </button>
+  </mat-menu>
 </div>

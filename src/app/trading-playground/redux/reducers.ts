@@ -1,9 +1,9 @@
 import { MarketCap100 } from './../../types/types';
-import { Action, createReducer, on } from "@ngrx/store";
+import { Action, createReducer, on } from '@ngrx/store';
 import { clearState, updateTradeData } from './actions';
 
 export interface TradingPlaygroundState {
-  coinData: MarketCap100[]
+  coinData: MarketCap100[];
 }
 
 export interface UpdateTradeData extends Action {
@@ -11,22 +11,27 @@ export interface UpdateTradeData extends Action {
 }
 
 export const initialState: TradingPlaygroundState = { coinData: [] };
- 
+
 const _tradingPlaygroundReducer = createReducer(
   initialState,
-  
-  on(updateTradeData, (state: TradingPlaygroundState, action: UpdateTradeData) => {
-    return {
-      coinData: action.coinData
+
+  on(
+    updateTradeData,
+    (state: TradingPlaygroundState, action: UpdateTradeData) => {
+      return {
+        coinData: action.coinData,
+      };
     }
-  }),
+  ),
 
   on(clearState, () => {
-    return initialState
+    return initialState;
   })
-
 );
- 
-export function tradingPlaygroundReducer(state: TradingPlaygroundState = initialState, action: Action) {
+
+export function tradingPlaygroundReducer(
+  state: TradingPlaygroundState = initialState,
+  action: Action
+) {
   return _tradingPlaygroundReducer(state, action);
 }

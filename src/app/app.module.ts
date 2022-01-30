@@ -16,7 +16,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
-import { FlexLayoutModule } from "@angular/flex-layout";
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { EnsureHttpsInterceptor } from './http-interceptor';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { StoreModule } from '@ngrx/store';
@@ -31,7 +31,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     AppComponent,
     NavbarComponent,
     NavmenuComponent,
-    DarkModeToggleComponent
+    DarkModeToggleComponent,
   ],
   imports: [
     MatFormFieldModule,
@@ -50,14 +50,24 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     LandingPageModule,
     HoldingsModule,
     TradingPlaygroundModule,
-    StoreModule.forRoot({ holdings: holdingsReducer, tradingPlayground: tradingPlaygroundReducer }),
+    StoreModule.forRoot({
+      holdings: holdingsReducer,
+      tradingPlayground: tradingPlaygroundReducer,
+    }),
     StoreDevtoolsModule.instrument({
       maxAge: 50,
       logOnly: false,
     }),
   ],
-  providers: [{ provide: HTTP_INTERCEPTORS, useClass: EnsureHttpsInterceptor, multi: true },
-    Location, {provide: LocationStrategy, useClass: HashLocationStrategy}],
-  bootstrap: [AppComponent]
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: EnsureHttpsInterceptor,
+      multi: true,
+    },
+    Location,
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -7,16 +7,13 @@ describe('LandingPageComponent', () => {
   let component: LandingPageComponent;
   let fixture: ComponentFixture<LandingPageComponent>;
   let store: MockStore;
-  const initialState = { };
+  const initialState = {};
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LandingPageComponent ],
-      providers: [
-        provideMockStore({ initialState }),
-      ],
-    })
-    .compileComponents();
+      declarations: [LandingPageComponent],
+      providers: [provideMockStore({ initialState })],
+    }).compileComponents();
 
     store = TestBed.inject(MockStore);
   });

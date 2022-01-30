@@ -1,35 +1,35 @@
-#navbar { 
-    .brand {
-        align-items: center;
-        
-        a {
-            h3 {
-                padding-left: .5rem;
-                font-family: 'ZCOOL KuaiLe', cursive;
-                font-size: small;
-            }
-        }
-        
-        img {
-            height: 30px;
-            margin-left: 8px;
-        }
-    }
+#navbar {
+  .brand {
+    align-items: center;
 
-    #total {
+    a {
+      h3 {
+        padding-left: 0.5rem;
+        font-family: "ZCOOL KuaiLe", cursive;
         font-size: small;
-        color: white;
+      }
     }
 
-    .links {
-        a {
-            padding-left: 1rem;
-            font-family: 'Saira', sans-serif;
-            font-size: 14px;
-        }
+    img {
+      height: 30px;
+      margin-left: 8px;
     }
-    
-    mat-icon {
-        cursor: pointer;
+  }
+
+  #total {
+    font-size: small;
+    color: white;
+  }
+
+  .links {
+    a {
+      padding-left: 1rem;
+      font-family: "Saira", sans-serif;
+      font-size: 14px;
     }
+  }
+
+  mat-icon {
+    cursor: pointer;
+  }
 }

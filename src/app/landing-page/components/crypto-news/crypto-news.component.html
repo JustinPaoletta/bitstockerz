@@ -1,18 +1,18 @@
 <div fxLayout="column" fxLayoutAlign=" center" class="container">
-    <h1>Crypto News</h1>
-    <div id="crypto-news">
-        <div *ngFor="let article of cryptoNewsArticles" class="news-container">
-            <a href="{{article.url}}">
-                <mat-card>
-                    <div>
-                        <h3>{{article.title}}</h3>
-                    </div>
-                    <div class="info">
-                        <p>{{article.domain}}</p>
-                        <p>{{article.created_at}}</p>
-                    </div>
-                </mat-card>
-            </a>
-        </div>
+  <h1>Crypto News</h1>
+  <div id="crypto-news">
+    <div *ngFor="let article of cryptoNewsArticles" class="news-container">
+      <a href="{{ article.url }}">
+        <mat-card>
+          <div>
+            <h3>{{ article.title }}</h3>
+          </div>
+          <div class="info">
+            <p>{{ article.domain }}</p>
+            <p>{{ article.created_at }}</p>
+          </div>
+        </mat-card>
+      </a>
     </div>
+  </div>
 </div>

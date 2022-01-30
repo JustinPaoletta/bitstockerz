@@ -1,20 +1,28 @@
 <div id="trading-playground">
-    <div class="choices">
-        <h1>TRADING PLAYGROUND</h1>
-        <h3>Learn about each coin and practice trading fake ones with zero risk</h3>
-        <mat-form-field appearance="fill">
-            <mat-label>Choose a coin</mat-label>
-            <mat-select [(value)]="selected" (selectionChange)="getSingleCoinInfo()">
-                <mat-option *ngFor="let coin of supportedCoins | async" [value]="coin.id">
-                    {{ coin.id }}
-                </mat-option>
-            </mat-select>
-        </mat-form-field>
-    </div>
-    <div class="selection">
-        <h3>{{selected | uppercase}}</h3>
-        <app-coin-spinner *ngIf="selected && !(selectedCoinData | async)?.description?.en || !selected && (selectedCoinData | async)?.description?.en"></app-coin-spinner>
-        <p [innerHTML]="(selectedCoinData | async)?.description?.en"></p>
-    </div>
-    <canvas id="myChart" width="400" height="400"></canvas>
+  <div class="choices">
+    <h1>TRADING PLAYGROUND</h1>
+    <h3>Learn about each coin and practice trading fake ones with zero risk</h3>
+    <mat-form-field appearance="fill">
+      <mat-label>Choose a coin</mat-label>
+      <mat-select [(value)]="selected" (selectionChange)="getSingleCoinInfo()">
+        <mat-option
+          *ngFor="let coin of supportedCoins | async"
+          [value]="coin.id"
+        >
+          {{ coin.id }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="selection">
+    <h3>{{ selected | uppercase }}</h3>
+    <app-coin-spinner
+      *ngIf="
+        (selected && !(selectedCoinData | async)?.description?.en) ||
+        (!selected && (selectedCoinData | async)?.description?.en)
+      "
+    ></app-coin-spinner>
+    <p [innerHTML]="(selectedCoinData | async)?.description?.en"></p>
+  </div>
+  <canvas id="myChart" width="400" height="400"></canvas>
 </div>

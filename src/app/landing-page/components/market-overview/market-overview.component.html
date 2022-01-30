@@ -1,42 +1,65 @@
 <div class="container">
   <div id="market-overview">
     <h1>Top 100 Coins</h1>
-      <mat-form-field appearance="standard" fxLayout="row" fxLayoutAlign="center">
-        <mat-icon matSuffix>search</mat-icon>
-        <input matInput (keyup)="applyFilter($event)" placeholder="Search Cryptos" #input>
-      </mat-form-field>
-      <mat-table mat-table matSort [dataSource]="dataSource" class="mat-elevation-z0 market-table">
-      
-          <ng-container matColumnDef="market_cap_rank">
-            <mat-header-cell *matHeaderCellDef mat-sort-header> Rank </mat-header-cell>
-            <mat-cell *matCellDef="let coin">
-              <div class="logo">
-                <div class="number">{{coin.market_cap_rank}}</div> 
-                <img src={{coin.image}} /> 
-              </div> 
-            </mat-cell>
-          </ng-container>
-  
-          <ng-container matColumnDef="market_cap">
-              <mat-header-cell *matHeaderCellDef mat-sort-header> Cap </mat-header-cell>
-              <mat-cell *matCellDef="let coin"> {{coin.market_cap | currency}}</mat-cell>
-          </ng-container>
-        
-          <ng-container matColumnDef="symbol">
-            <mat-header-cell *matHeaderCellDef mat-sort-header> Symbol </mat-header-cell>
-            <mat-cell *matCellDef="let coin"> {{coin.symbol}} </mat-cell>
-          </ng-container>
-        
-          <ng-container matColumnDef="current_price">
-            <mat-header-cell *matHeaderCellDef mat-sort-header> Price </mat-header-cell>
-            <mat-cell *matCellDef="let coin"> {{coin.current_price | currency}} </mat-cell>
-          </ng-container>
-        
-          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-          <mat-row *matRowDef="let row; columns: displayedColumns;">
-          </mat-row>
-        </mat-table>
-        <mat-paginator [pageSizeOptions]="[10]" [hidePageSize]="true" showFirstLastButtons></mat-paginator>
+    <mat-form-field appearance="standard" fxLayout="row" fxLayoutAlign="center">
+      <mat-icon matSuffix>search</mat-icon>
+      <input
+        matInput
+        (keyup)="applyFilter($event)"
+        placeholder="Search Cryptos"
+        #input
+      />
+    </mat-form-field>
+    <mat-table
+      mat-table
+      matSort
+      [dataSource]="dataSource"
+      class="mat-elevation-z0 market-table"
+    >
+      <ng-container matColumnDef="market_cap_rank">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          Rank
+        </mat-header-cell>
+        <mat-cell *matCellDef="let coin">
+          <div class="logo">
+            <div class="number">{{ coin.market_cap_rank }}</div>
+            <img src="{{ coin.image }}" />
+          </div>
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="market_cap">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          Cap
+        </mat-header-cell>
+        <mat-cell *matCellDef="let coin">
+          {{ coin.market_cap | currency }}</mat-cell
+        >
+      </ng-container>
+
+      <ng-container matColumnDef="symbol">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          Symbol
+        </mat-header-cell>
+        <mat-cell *matCellDef="let coin"> {{ coin.symbol }} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="current_price">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          Price
+        </mat-header-cell>
+        <mat-cell *matCellDef="let coin">
+          {{ coin.current_price | currency }}
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns"> </mat-row>
+    </mat-table>
+    <mat-paginator
+      [pageSizeOptions]="[10]"
+      [hidePageSize]="true"
+      showFirstLastButtons
+    ></mat-paginator>
   </div>
-  
 </div>
