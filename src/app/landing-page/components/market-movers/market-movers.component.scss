@@ -9,6 +9,7 @@ h1 {
     font-family: 'Saira', sans-serif;
     font-weight: bolder;
     margin-bottom: 48px;
+    margin-top: 24px;
 }
 
 .slider {
@@ -22,17 +23,7 @@ h1 {
 }
 
 #market-movers {
-    height: 44vh;
     width: 90%;
-
-    @media only screen 
-        and (min-device-width: 375px) 
-        and (max-device-width: 812px) 
-        and (-webkit-min-device-pixel-ratio: 3)
-        and (orientation: landscape) { 
-
-            height: 80vh;
-    }
 
     .card {
         height: 180px;
@@ -53,9 +44,11 @@ h1 {
 
     .percentage-up {
         color: rgb(41, 126, 41);
+        margin: 0;
     }
 
     .percentage-down {
         color: rgb(161, 29, 29);
+        margin: 0;
     }
 }
